@@ -56,8 +56,8 @@ class Game extends CI_Controller {
         }
         else
         {
-            $loginId   = $this -> input -> get("loginId");
-            $precisionValue = $this->usermodel->getUserIdFromLogin("precisionValue");
+            $loginId   = $this -> input -> get("loginId");            
+			$precisionValue   = $this -> input -> get("precisionValue");
             $perfectionValue   = $this -> input -> get("perfectionValue");
             $punctualityValue   = $this -> input -> get("punctualityValue");
             $presenceValue   = $this -> input -> get("presenceValue");
