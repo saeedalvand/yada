@@ -62,5 +62,22 @@ class Gamemodel extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function insertLevelStats($uid,$precisionValue,$perfectionValue,$punctualityValue,$presenceValue,$paceValue,$step){
+        $data = array(
+            'uid' => $uid,
+            'precisionValue' => $precisionValue,
+            'perfectionValue' => $perfectionValue,
+            'punctualityValue' => $punctualityValue,
+            'presenceValue' => $presenceValue,
+            'paceValue' => $paceValue,
+            'step' => $step
+        );
+        $result = $this->db->insert('pointsbeforeexam', $data);
+        if ($result == 1) {
+            return 'success';
+        } else {
+            return -1;
+        }
+    }
 }
 ;

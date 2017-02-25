@@ -49,4 +49,22 @@ class Game extends CI_Controller {
             echo $resultString;
         }
     }
+    public function sendEndLevelStats(){
+        if(!isset($_GET['loginId']) || !isset($_GET['precisionValue'])|| !isset($_GET['perfectionValue'])|| !isset($_GET['punctualityValue'])|| !isset($_GET['presenceValue'])|| !isset($_GET['paceValue'])|| !isset($_GET['step']))
+        {
+            echo json_encode("0Invalid parameters. there is at least one missing parameter. please check the API");
+        }
+        else
+        {
+            $loginId   = $this -> input -> get("loginId");
+            $precisionValue = $this->usermodel->getUserIdFromLogin("precisionValue");
+            $perfectionValue   = $this -> input -> get("perfectionValue");
+            $punctualityValue   = $this -> input -> get("punctualityValue");
+            $presenceValue   = $this -> input -> get("presenceValue");
+            $paceValue   = $this -> input -> get("paceValue");
+            $step   = $this -> input -> get("step");
+            $uid = $this->usermodel->getUserIdFromLogin($loginId);
+            echo $this->Gamemodel->insertLevelStats($uid,$precisionValue,$perfectionValue,$punctualityValue,$presenceValue,$paceValue,$step);
+        }
+    }
 }

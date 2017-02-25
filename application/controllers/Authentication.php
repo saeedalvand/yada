@@ -79,7 +79,6 @@ class Authentication extends CI_Controller {
             {
                 echo 'success';
             }
-
 	    }
 	}
 
