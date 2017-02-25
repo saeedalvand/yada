@@ -42,7 +42,7 @@ class Game extends CI_Controller {
 
             $meAndUp = $this->Gamemodel->getMyRankAndScore($uid);
             if(count($meAndUp)==0){
-                echo "-,0;";
+                echo "-1,0;";
             }
             foreach ($meAndUp as $mup) {
                 if($mup['userid']==$uid)
