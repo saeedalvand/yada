@@ -46,9 +46,11 @@ class Game extends CI_Controller {
             }
             else{
                 foreach ($meAndUp as $mup) {
-                    if($mup['userid']==$uid)
+                    if($mup['userid']==$uid){
                         $myPoint = $mup['sum(score)'];
-                    echo count($meAndUp).",".$myPoint.";";
+                        echo count($meAndUp).",".$myPoint.";";
+                        break;
+                    }
                 }
             }
             echo $resultString;
@@ -61,8 +63,8 @@ class Game extends CI_Controller {
         }
         else
         {
-            $loginId   = $this -> input -> get("loginId"); 
-			$precisionValue   = $this -> input -> get("precisionValue");
+            $loginId   = $this -> input -> get("loginId");
+            $precisionValue   = $this -> input -> get("precisionValue");
             $perfectionValue   = $this -> input -> get("perfectionValue");
             $punctualityValue   = $this -> input -> get("punctualityValue");
             $presenceValue   = $this -> input -> get("presenceValue");
