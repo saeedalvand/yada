@@ -44,10 +44,12 @@ class Game extends CI_Controller {
             if(count($meAndUp)==0){
                 echo "-1,0;";
             }
-            foreach ($meAndUp as $mup) {
-                if($mup['userid']==$uid)
-                    $myPoint = $mup['sum(score)'];
-                echo count($meAndUp).",".$myPoint.";";
+            else{
+                foreach ($meAndUp as $mup) {
+                    if($mup['userid']==$uid)
+                        $myPoint = $mup['sum(score)'];
+                    echo count($meAndUp).",".$myPoint.";";
+                }
             }
             echo $resultString;
         }
